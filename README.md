@@ -114,11 +114,14 @@ make
 
 
 ## With GUI
-1. xfce4 + 遠端桌面連線
-
+### xfce4 + 遠端桌面連線
+```
 sudo nano /etc/resolv.conf
+```
+```
+nameserver 8.8.8.8
+```
 
-        nameserver 8.8.8.8
 ```
 sudo apt update -y && sudo apt upgrade -y
 lsb_release -a  # Linux Standard Base, to display information about LS and specific version details
@@ -154,6 +157,19 @@ fi
 startxfce4
 ```
 
+Restart WSL with following command:  
+In PowerShell / CMD
+
+        wsl --shutdown
+In WSL
+
+        wsl.exe --shutdown
+
+Start Ubuntu and start xrdp
+        sudo /etc/init.d/xrdp start
+
+使用windows內建的remote desktop連線
+打上localhost:3390即可連線
 
 
 
