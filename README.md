@@ -166,24 +166,58 @@ In WSL
         wsl.exe --shutdown
 
 Start Ubuntu and start xrdp
-        sudo /etc/init.d/xrdp start
 
-使用windows內建的remote desktop連線
-打上localhost:3390即可連線
+        sudo /etc/init.d/xrdp start or sudo service xrdp restart
+
+使用windows內建的remote desktop連線打上localhost:3390即可連線
+
+### gnome desktop + VcXsrv
+
+sudo apt update
+
+sudo ln -s /dev/null /etc/systemd/system/acpid.service
+sudo ln -s /dev/null /etc/systemd/system/acpid.path
+
+sudo apt install ubuntu-desktop gnome -y
+
+建立一個~/gnome.sh
+#!/bin/bash
+export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+export XDG_SESSION_DESKTOP=ubuntu
+export DESKTOP_SESSION=ubuntu
+export GNOME_SHELL_SESSION_MODE=ubuntu
+export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+export XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+export XDG_MENU_PREFIX=gnome-
+export XDG_SESSION_TYPE=x11
+export XDG_SESSION_CLASS=user
+export GDK_BACKEND=x11
+export LIBGL_ALWAYS_SOFTWARE=1
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+gnome-session --session=ubuntu
+
+chmod +x ~/gnome.sh
 
 
+創一個gnome.sh
+#!/bin/bash
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0;
+#export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+#export XDG_SESSION_TYPE="x11"
+#export XDG_RUNTIME_DIR=~/.cache/xdg
+#export XDG_SESSION_CLASS="user"
+#export XDG_SESSION_DESKTOP=ubuntu
+#export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+#export DESKTOP_SESSION=ubuntu
+#export GDMSESSION=ubuntu
+#export GNOME_SHELL_SESSION_MODE=ubuntu
+#export LIBGL_ALWAYS_INDIRECT =1  # 可以不加這行，預設為direct rendering
+#gnome-session "$@" ls
+EOF
 
-
-
-
-2. gnome desktop + VcXsrv
-
-
-
-
-
-
-
+Xlanch
+參數帶 -ac
 
 
 
@@ -211,12 +245,11 @@ bcdedit /enum | findstr -i hypervisorlaunchtype
 if hypervisorlaunchtype off, then the hypervisor is disabled. Enable it run
 bcdedit /set hypervisorlaunchtype Auto
 
++ 如果遇到打完帳密就閃退或黑畫面
+https://devicetests.com/fixing-xrdp-black-screen-issue-ubuntu
 
-
-
-
-
-
++ 若啟用後發現無論是 sudo apt update 或是 sudo systemctl status 都跑得很慢，甚至跳出 Transport Endpoint Is Not Connected
+https://github.com/microsoft/WSL/issues/8904#issuecomment-1324249768
 
 
 
@@ -228,6 +261,10 @@ https://hackmd.io/@JYU/B1zmv1MCU
 https://www.youtube.com/watch?v=QC7a9nowsz8
 https://www.youtube.com/watch?v=IL7Jd9rjgrM
 https://www.youtube.com/watch?v=6_mbd1hvUnE
+https://blog.davy.tw/posts/running-ubuntu-desktop-in-wsl2/
+https://www.51cto.com/article/698844.html
+https://gist.github.com/Ta180m/e1471413f62e3ed94e72001d42e77e22
+
 
 
 
