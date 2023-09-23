@@ -181,40 +181,46 @@ sudo ln -s /dev/null /etc/systemd/system/acpid.path
 sudo apt install ubuntu-desktop gnome -y
 
 建立一個~/gnome.sh
+```
 #!/bin/bash
-export XDG_CURRENT_DESKTOP=ubuntu:GNOME
-export XDG_SESSION_DESKTOP=ubuntu
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 export DESKTOP_SESSION=ubuntu
 export GNOME_SHELL_SESSION_MODE=ubuntu
+
 export XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 export XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop
 export XDG_MENU_PREFIX=gnome-
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export XDG_SESSION_TYPE=x11
 export XDG_SESSION_CLASS=user
+export XDG_SESSION_DESKTOP=ubuntu
+
 export GDK_BACKEND=x11
 export LIBGL_ALWAYS_SOFTWARE=1
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+
 gnome-session --session=ubuntu
+```
 
-chmod +x ~/gnome.sh
+    chmod +x ~/gnome.sh
 
 
-創一個gnome.sh
+創一個gnome.sh(另一版本未測)
+```
 #!/bin/bash
-# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0;
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-#export XDG_SESSION_TYPE="x11"
-#export XDG_RUNTIME_DIR=~/.cache/xdg
-#export XDG_SESSION_CLASS="user"
-#export XDG_SESSION_DESKTOP=ubuntu
-#export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 #export DESKTOP_SESSION=ubuntu
 #export GDMSESSION=ubuntu
 #export GNOME_SHELL_SESSION_MODE=ubuntu
 #export LIBGL_ALWAYS_INDIRECT =1  # 可以不加這行，預設為direct rendering
+#export XDG_SESSION_TYPE="x11"
+#export XDG_SESSION_CLASS="user"
+#export XDG_SESSION_DESKTOP=ubuntu
+#export XDG_RUNTIME_DIR=~/.cache/xdg
+#export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 #gnome-session "$@" ls
 EOF
+```
 
 Xlanch
 參數帶 -ac
@@ -231,19 +237,19 @@ Xlanch
 
 ## Troubleshooting
 + WslRegisterDistribution failed with error: 0x80370102
-https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed
-https://askubuntu.com/questions/1264102/wsl-2-wont-run-ubuntu-error-0x80370102
-https://www.bleepingcomputer.com/tutorials/how-to-enable-cpu-virtualization-in-your-computer-bios/
+https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed  
+https://askubuntu.com/questions/1264102/wsl-2-wont-run-ubuntu-error-0x80370102  
+https://www.bleepingcomputer.com/tutorials/how-to-enable-cpu-virtualization-in-your-computer-bios/  
 
-Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.
-到CMD執行Systeminfo.exe，確認Hyper-V訊息
-到BIOS調cpu configuration\SVM (cpu vituralization) 設定成Enbaled  
+Please enable the Virtual Machine Platform Windows feature and ensure virtualization is enabled in the BIOS.  
+到CMD執行Systeminfo.exe，確認Hyper-V訊息  
+到BIOS調cpu configuration\SVM (cpu vituralization) 設定成Enbaled    
 
-Make sure hypervisor launch is enabled, CMD run
-bcdedit /enum | findstr -i hypervisorlaunchtype
+Make sure hypervisor launch is enabled, CMD run  
+bcdedit /enum | findstr -i hypervisorlaunchtype  
 
-if hypervisorlaunchtype off, then the hypervisor is disabled. Enable it run
-bcdedit /set hypervisorlaunchtype Auto
+if hypervisorlaunchtype off, then the hypervisor is disabled. Enable it run  
+bcdedit /set hypervisorlaunchtype Auto  
 
 + 如果遇到打完帳密就閃退或黑畫面
 https://devicetests.com/fixing-xrdp-black-screen-issue-ubuntu
@@ -256,14 +262,14 @@ https://github.com/microsoft/WSL/issues/8904#issuecomment-1324249768
 # Reference
 https://github.com/fatbrother/WSL-Desktop-Env Highly appreciate!!  
 https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#2-install-wsl  
-https://learn.microsoft.com/zh-tw/windows/wsl/install
-https://hackmd.io/@JYU/B1zmv1MCU
-https://www.youtube.com/watch?v=QC7a9nowsz8
-https://www.youtube.com/watch?v=IL7Jd9rjgrM
-https://www.youtube.com/watch?v=6_mbd1hvUnE
-https://blog.davy.tw/posts/running-ubuntu-desktop-in-wsl2/
-https://www.51cto.com/article/698844.html
-https://gist.github.com/Ta180m/e1471413f62e3ed94e72001d42e77e22
+https://learn.microsoft.com/zh-tw/windows/wsl/install  
+https://hackmd.io/@JYU/B1zmv1MCU  
+https://www.youtube.com/watch?v=QC7a9nowsz8  
+https://www.youtube.com/watch?v=IL7Jd9rjgrM  
+https://www.youtube.com/watch?v=6_mbd1hvUnE  
+https://blog.davy.tw/posts/running-ubuntu-desktop-in-wsl2/  
+https://www.51cto.com/article/698844.html  
+https://gist.github.com/Ta180m/e1471413f62e3ed94e72001d42e77e22  
 
 
 
