@@ -6,11 +6,10 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 2. 若是第一次安裝WSL，以admin開啟power shell / cmd，並執行
 
         wsl --install
-預設會安裝WSL2以及Ubuntu22.04  
-(或是在Microsoft store搜尋windows subsystem來安裝)
-(上面指令跟直接到 控制台\程式集\程式和功能\開啟或關閉Windows功能 勾選 Windows子系統Linux版和虛擬機器平台 _**應該**_ 有同等效果)
-[Microsoft store subsytem](https://assets.ubuntu.com/v1/625ba435-search-windlows-subsystem.png)
-
+   *預設會安裝WSL2以及Ubuntu22.04  
+   (或是在Microsoft store搜尋windows subsystem來安裝[Microsoft store subsytem](https://assets.ubuntu.com/v1/976c348a-click-item.png))  
+   (上面指令跟直接到 控制台\程式集\程式和功能\開啟或關閉Windows功能 勾選 Windows子系統Linux版和虛擬機器平台 _**應該**_ 有同等效果[Windows 功能](https://i.imgur.com/OgaHiPQ.png))
+ 
 
 如果執行wsl --install看到解說文字，表示已有安裝過，請輸入以下指令查看可用的散發版本清單
 
