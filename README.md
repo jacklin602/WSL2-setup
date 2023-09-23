@@ -12,63 +12,41 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 3. 重新開機
  
 ## Install Linux distribution (Optional)
-請輸入以下指令查看可用的散發版本清單 [disro available list](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/f/a/fa1fb3ef9c37ea3aaa8f2721593722dd286b62e4.png)
++ 輸入以下指令查看可用的散發版本清單 [disro available list](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/f/a/fa1fb3ef9c37ea3aaa8f2721593722dd286b62e4.png)
 
         wsl --list --online or wsl -l -o
 (或是直接到Microsoft store搜尋 [Store Ubuntu](https://assets.ubuntu.com/v1/6460fec3-choose-distribution.png))
 
-執行以下指令安裝散發版本 [install distro](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/9/a/9a8cc820e5b13d82a280b101587e9a3a50696f08.png)
++ 執行以下指令安裝散發版本 [install distro](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/9/a/9a8cc820e5b13d82a280b101587e9a3a50696f08.png)
 
         wsl --install -d <DistroName>
 \<DistroName>為list第一個欄位名稱(NAME)
 
 ## Check WSL running version
-查看Linux發行版本設定為WSL1 / WSL2 [list result](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/3/b/3bbd5bab38419d875d5c85fec7c0b3fdc78068f1.png)  
++ 查看Linux發行版本設定為WSL1 / WSL2 [list result](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/3/b/3bbd5bab38419d875d5c85fec7c0b3fdc78068f1.png)  
 
         wsl -l -v
 
-在安裝新的Linux發行版本時，將預設版本設定為WSL1/WSL2，請輸入:
++ 在安裝新的Linux發行版本時，將預設版本設定為WSL1/WSL2，請輸入:
 
         wsl --set-default-version <Version#>
 將<Version#>取代為1或2
 
-設定WSL指令所用的預設Linux散發版本，請輸入:
++ 設定WSL指令所用的預設Linux散發版本，請輸入:
 
         wsl -s <DistributionName> or wsl --setdefault <DistributionName>
 
++ 若要從PowerShell/CMD執行特定WSL散發套件而不變更預測散發套件，請輸入:
 
+        wsl -d <DirstirbutionName>
 
-設定  
-wsl --set-version <distro name> 2  
++ 設定散發套件使用的WSL版本
 
-
-
-[WSL基本指令](https://learn.microsoft.com/zh-tw/windows/wsl/basic-commands#install)
-
-
-
-
-
-
-
-
-
-## Install Ubuntu
-
-
-
-
-
-
-
-
-
-
-
-
+        wsl --set-version <distro name> <Version#>
+  
+其他WSL指令可參考: [WSL基本指令](https://learn.microsoft.com/zh-tw/windows/wsl/basic-commands#install)
 
 ## With GUI
-
 1. xfce4 + 遠端桌面連線
 2. gnome desktop + VcXsrv
 
