@@ -1,5 +1,5 @@
 # WSL2-setup
-Tutorial of setting up WSL2 with gnome-desktop
+Tutorial of setting up WSL2 with Ubuntu 22.04
 
 ## Install WSL
 1. 開啟BIOS中的CPU configuration\SVM (cpu vituralization)   Enable CPU configuration\SVM (cpu vituralization) in BIOS  
