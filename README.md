@@ -19,7 +19,7 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 
 執行以下指令安裝散發版本 [install distro](https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/3X/9/a/9a8cc820e5b13d82a280b101587e9a3a50696f08.png)
 
-        wsl --install -d \<DistroName>
+        wsl --install -d <DistroName>
 \<DistroName>為list第一個欄位名稱(NAME)
 
 ## Check WSL running version
@@ -34,12 +34,12 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 
 設定WSL指令所用的預設Linux散發版本，請輸入:
 
-        wsl -s \<DistributionName> or wsl --setdefault \<DistributionName>
+        wsl -s <DistributionName> or wsl --setdefault <DistributionName>
 
 
 
 設定  
-wsl --set-version \<distro name> 2  
+wsl --set-version <distro name> 2  
 
 
 
