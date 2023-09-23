@@ -59,14 +59,55 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 + 更新環境
 
         sudo apt update -y && sudo apt upgrade -y
-  
+
++ 啟用systemd(預設開啟)
+
+        sudo nano /etc/wsl.conf
+```
+[boot]
+systemd=true
+```
+
 + 安裝常用套件
  
         sudo apt install make gedit neofetch tmux
 
++ 安裝CUDA
 
+1. First remove the old GPG key:
 
+        sudo apt-key del 7fa2af80
 
+2. Setup the appropriate package for Ubuntu WSL:
+
+        wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+
+        sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+
+        sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/3bf863cc.pub
+
+        sudo add-apt-repository 'deb https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/ /'
+
+        sudo apt-get update
+
+        sudo apt-get -y install cuda
+[完成畫面](https://lh3.googleusercontent.com/LOGRRLAHq7YA19ljM0eh0wpGwP1cXthB_bnDahTzxI3bziWb-qb9vZTvpAtEfKXUIghsgcNMvxTLz3xq2WquH_d_Fd34S6YAFM1UHCKjEuFTkL7nzMKAKYbDD-EInDpS2tjjZnQK7XIzijXDTg)
+
+3. Compile a sample application  
+Create a temp dirctory
+```
+mkdir temp
+cd ~/temp
+git clone https://github.com/nvidia/cuda-samples
+cd ~/temp/cuda-samples/Samples/1_Utilities/deviceQuery
+make
+```
+[完成畫面](https://lh5.googleusercontent.com/iN_jDkNiloSVVaGfK4Zr6nHOxa9vj-2aqKhf1jG0nxBmoN2YkA7sHXtaqiVGo8YB6hKlksq8oyzlLH1IitT6A6Jhq18D1PuwqRPRSF-bkaGTWIyTECtkO_XBzQcIMHIbeHJsX5QUHGWkloRu6w)
+
+4. Run sample
+
+        ./deviceQuery
+[完成畫面](https://lh4.googleusercontent.com/0k7z_3i-WHJpebmYsRDCeHHh5DMdO-4xzsiPQz_jTuh4wRZV0-L7-5IiRlFLfIwku-VM2rKCdew_e2GieYloED-3jNEi-M8oByat6pasY7C3GHf7f3IegV2Q98faY-81w77m2Ix43BrZFBIAQw)
 
 
 
@@ -75,6 +116,43 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 ## With GUI
 1. xfce4 + 遠端桌面連線
 
+sudo nano /etc/resolv.conf
+
+        nameserver 8.8.8.8
+```
+sudo apt update -y && sudo apt upgrade -y
+lsb_release -a  # Linux Standard Base, to display information about LS and specific version details
+sudo apt install -y xrdp xfce4 xfce4-goodies
+sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak
+sudo sed -I ‘s/3389/3390/g’ /etc/xrdp/xrdp.ini
+sudo sed -I ‘s/max_bpp=32/#max_dpp=32\nmax_bpp=128/g’ /etc/xrdp/xrdp.ini
+sudo sed -I ‘s/xserverbpp=24/#xserverbpp=24\nxserverbpp=128/g’ /etc/xrdp/xrdp.ini
+echo xfce4-session > ~/.xsession
+sudo gedit /etc/xrdp/startwm.sh
+```
+
+Modified startwm.sh as follows
+```
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+#!/bin/sh
+# xrdp X session start script (c) 2015, 2017, 2021 mirabilos
+# published under The MirOS Licence
+
+# Rely on /etc/pam.d/xrdp-sesman using pam_env to load both
+# /etc/environment and /etc/default/locale to initialise the
+# locale and the user environment properly.
+
+if test -r /etc/profile; then
+    . /etc/profile
+fi
+
+# test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+# exec /bin/sh /etc/X11/Xsession
+
+# export $(dbus-launch)
+startxfce4
+```
 
 
 
@@ -130,7 +208,10 @@ bcdedit /set hypervisorlaunchtype Auto
 https://github.com/fatbrother/WSL-Desktop-Env Highly appreciate!!  
 https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#2-install-wsl  
 https://learn.microsoft.com/zh-tw/windows/wsl/install
-
+https://hackmd.io/@JYU/B1zmv1MCU
+https://www.youtube.com/watch?v=QC7a9nowsz8
+https://www.youtube.com/watch?v=IL7Jd9rjgrM
+https://www.youtube.com/watch?v=6_mbd1hvUnE
 
 
 
