@@ -13,10 +13,20 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 
 
 
+## With GUI
 
+1. xfce4 + 遠端桌面連線
+2. gnome desktop + VcXsrv
 
 
 
 # Reference
 https://github.com/fatbrother/WSL-Desktop-Env highly appreciate!!  
-https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#2-install-wsl
+https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#2-install-wsl  
+https://learn.microsoft.com/zh-tw/windows/wsl/install
+
+
+
+
+
+
