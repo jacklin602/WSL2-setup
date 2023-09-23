@@ -278,17 +278,17 @@ https://x410.dev/cookbook/wsl/running-ubuntu-desktop-in-wsl2/
 https://gist.github.com/Ta180m/e1471413f62e3ed94e72001d42e77e22
 https://askubuntu.com/questions/1432937/how-to-install-gnome-for-ubuntu-22-04-on-wsl2  
 https://gist.github.com/b23prodtm/b058b8b0efbd7e9c632dbcc7affe1754  
-https://blog.davy.tw/posts/running-ubuntu-desktop-in-wsl2/#fn5  
 https://www.51cto.com/article/698844.html  
 https://github.com/microsoft/WSL/discussions/9350  
 https://www.reddit.com/r/bashonubuntuonwindows/comments/chvgcm/problem_with_launching_gnomesession_in_wsl2/  
 https://github.com/DamionGans/ubuntu-wsl2-systemd-script/blob/master/ubuntu-wsl2-systemd-script.sh
-
-
-
-
-
-
+https://www.omegaatt.com/blogs/develop/2023/wsl2_systemd_podman.html#wsl2-%E4%B8%AD%E5%95%9F%E7%94%A8-systemd  
+https://github.com/microsoft/WSL/issues/8867  
+https://github.com/microsoft/WSL/issues/4793#issuecomment-588321333  
+https://github.com/microsoft/WSL/issues/4793#issuecomment-577232999  
+https://github.com/microsoft/WSL/issues/4106  
+https://stackoverflow.com/questions/61860208/running-graphical-linux-desktop-applications-from-wsl-2-error-e233-cannot-op  
+https://askubuntu.com/questions/1442663/cannot-start-gnome-session-after-enabling-systemd-on-latest-wsl2  
 
 
 
