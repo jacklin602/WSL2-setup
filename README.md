@@ -238,7 +238,7 @@ Xlanch
 
 
 ## Troubleshooting
-+ WslRegisterDistribution failed with error: 0x80370102
++ WslRegisterDistribution failed with error: 0x80370102  
 https://learn.microsoft.com/en-us/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed  
 https://askubuntu.com/questions/1264102/wsl-2-wont-run-ubuntu-error-0x80370102  
 https://www.bleepingcomputer.com/tutorials/how-to-enable-cpu-virtualization-in-your-computer-bios/  
