@@ -181,6 +181,7 @@ sudo ln -s /dev/null /etc/systemd/system/acpid.path
 sudo apt install ubuntu-desktop gnome -y
 
 建立一個~/gnome.sh
+
 ```
 #!/bin/bash
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
@@ -206,6 +207,7 @@ gnome-session --session=ubuntu
 
 
 創一個gnome.sh(另一版本未測)
+
 ```
 #!/bin/bash
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
