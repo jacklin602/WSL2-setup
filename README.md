@@ -1,6 +1,8 @@
 # WSL2-setup
 Tutorial of setting up WSL2 with Ubuntu 22.04
 
+請先更新windows到win11 or win10 22H2，並安裝Nvidia driver
+
 ## Install WSL
 1. 開啟BIOS中的CPU configuration\SVM (cpu vituralization)   Enable CPU configuration\SVM (cpu vituralization) in BIOS  
 2. 若是首次安裝WSL，請以admin開啟power shell / cmd，並執行
