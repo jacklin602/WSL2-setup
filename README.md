@@ -116,6 +116,7 @@ make
 ## With GUI
 ### xfce4 + 遠端桌面連線
 ```
+sudo apt update && sudo apt -y upgrade
 sudo nano /etc/resolv.conf
 ```
 ```
@@ -172,8 +173,7 @@ Start Ubuntu and start xrdp
 使用windows內建的remote desktop連線打上localhost:3390即可連線
 
 ### gnome desktop + VcXsrv
-
-sudo apt update
+sudo apt update && sudo apt -y upgrade
 
 sudo ln -s /dev/null /etc/systemd/system/acpid.service
 sudo ln -s /dev/null /etc/systemd/system/acpid.path
