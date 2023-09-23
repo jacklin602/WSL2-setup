@@ -11,6 +11,12 @@ Tutorial of setting up WSL2 with Ubuntu 22.04
 
 3. 重新開機
 
+## Check WSL version
+使用wsl --install安裝的新Linux預設設定為WSL2
+
+
+
+
 
 
 ## With GUI
