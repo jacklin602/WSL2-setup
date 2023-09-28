@@ -224,9 +224,9 @@ gnome-session --session=ubuntu
 EOF
 ```
 
-Xlanch
-參數帶 -ac
-
+啟動gnome-desktop
+1.執行Xlanch 選one large window 下面設0，Disable access control隨你勾選，下面帶上參數 -ac
+2.wsl terminal 輸入 bash ~/gnome.sh
 
 
 
