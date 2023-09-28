@@ -110,7 +110,7 @@ make
 [完成畫面](https://lh4.googleusercontent.com/0k7z_3i-WHJpebmYsRDCeHHh5DMdO-4xzsiPQz_jTuh4wRZV0-L7-5IiRlFLfIwku-VM2rKCdew_e2GieYloED-3jNEi-M8oByat6pasY7C3GHf7f3IegV2Q98faY-81w77m2Ix43BrZFBIAQw)
 
 
-
+https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl  
 
 
 ## With GUI
@@ -229,6 +229,8 @@ Xlanch
 
 
 
+
+
 ## 移除WSL
 
 到應用程式和功能移除所有相關程式
@@ -242,6 +244,12 @@ Error: 0x800701bc WSL 2 ???????????????????? visit https://aka.ms/wsl2kernel
         wsl --install -d Ubuntu-22.04
 
 
+
+## 變更WSL kernel
+https://www.bleepingcomputer.com/news/microsoft/windows-10-wsl2-now-allows-you-to-configure-global-options/  
+https://blog.csdn.net/qq_53928256/article/details/129737658  
+https://unix.stackexchange.com/questions/594470/wsl-2-does-not-have-lib-modules  
+https://github.com/microsoft/WSL2-Linux-Kernel/releases
 
 
 ## Troubleshooting
