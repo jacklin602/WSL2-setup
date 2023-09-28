@@ -229,10 +229,17 @@ Xlanch
 
 
 
+## 移除WSL
 
+到應用程式和功能移除所有相關程式
 
+        wsl --update
+安裝windows子系統linux版  
+WslRegisterDistribution failed with error: 0x800701bc  
+Error: 0x800701bc WSL 2 ???????????????????? visit https://aka.ms/wsl2kernel  
 
-
+安裝想要的linux散發套件  
+        wsl --install -d Ubuntu-22.04
 
 
 
